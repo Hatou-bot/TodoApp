@@ -1,7 +1,7 @@
-const taskList = [{'taskId': 0, 'Name':'Studying Javascript', 'Priority':'Urgent'},
-            {'taskId': 1, 'Name':'Polishing the 4th wall', 'Priority': 'Daily'},
-            {'taskId': 2, 'Name':'Dethroning unjust kings', 'Priority:':'Weekly'},
-            {'taskId': 3, 'Name':'Pondering on the meaning of life, the universe, and everything else', 'Priority':'Monthly'},
+const taskList = [{'taskId': 101, 'Name':'Studying Javascript', 'Priority':'Urgent'},
+            {'taskId': 102, 'Name':'Polishing the 4th wall', 'Priority': 'Daily'},
+            {'taskId': 103, 'Name':'Dethroning unjust kings', 'Priority:':'Weekly'},
+            {'taskId': 104, 'Name':'Pondering on the meaning of life, the universe, and everything else', 'Priority':'Monthly'},
 ]
 
 const taskBody = document.querySelector('.task-body')
