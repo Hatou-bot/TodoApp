@@ -5,8 +5,10 @@ const taskList = [{'taskId': 0, 'Name':'Studying Javascript', 'Priority':'Urgent
 ]
 
 const taskBody = document.querySelector('.task-body')
+const taskInput = document.querySelector('.add-task')
+const clickTask = document.querySelector('.first-bar button')
 
-function printTasks(pTasks){
+function printTasks(pTasks){ //prints tasks in the body
     taskBody.innerHTML = ""
 
     for(const task of pTasks){
@@ -18,3 +20,16 @@ function printTasks(pTasks){
 }
 printTasks(taskList)
 //printTasks(taskList)
+
+clickTask.addEventListener('click', onSaveTask)
+var taskId = 0
+function onSaveTask(){
+    const task = {
+        taskId: taskId,
+        Name: taskInput.value,
+        Priority: "Daily",
+    }
+    taskList.push(task)
+    taskId++;
+    printTasks(taskList)
+}
