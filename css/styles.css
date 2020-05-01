@@ -1,0 +1,41 @@
+/* Paleta:
+    #e8dee8
+    #E8D7FF
+    #8E9DCC
+    #7D84B2
+    #A30B37
+    #272838
+
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    width: 500px;
+    left: 50%;
+    right: 50%;
+}
+ul {
+    list-style: none;
+}
+.container div {
+    width: auto;
+}
+.first-bar {
+    background-color: #E8DEE8;
+}
+.second-bar {
+    background-color: #272838;
+    color: white;
+}
+.delete {
+    background-color: #A30B37;
+    color: white;
+}
+.footer {
+    background-color: #272838;
+    color: white;
+}
