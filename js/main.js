@@ -9,6 +9,7 @@ const taskInput = document.querySelector('.add-task')
 const clickTask = document.querySelector('.first-bar button')
 const prioritySelect= document.querySelector('.first-bar select')
 const searchInput = document.querySelector('.search-task')
+const searchPriority = document.querySelector('.second-bar select')
 
 
 function priorityToClassName(pPriority){
@@ -54,20 +55,40 @@ function onNoTextInput(event){
     clickTask.disabled = taskInput !== "" ? false : true
 }
 
-searchInput.addEventListener('input', onSearchTask)
+searchInput.addEventListener('input', onSearchTask) //searches tasks by name
 
 function onSearchTask(event){
-    let filteredList = filterTasks(taskList, searchInput.value)
+    let filteredList = filterName(taskList, searchInput.value)
     printTasks (filteredList)
     
 }
 
-function filterTasks(pList, pTask){
+function filterName(pList, pTask){
     let filteredList = new Array()
 
     filteredList = pList.filter(task => {
         return task.Name.includes(pTask.toLowerCase())
     })
+    return filteredList
+}
+
+searchPriority.addEventListener('change', onSearchPriority)
+
+function onSearchPriority(event){
+    if (searchPriority.value == "noFilter"){
+        printTasks(taskList)
+    } else {
+        let filteredList = filterPriority(taskList, searchPriority.value)
+        printTasks(filteredList)
+    }
+    
+}
+
+function filterPriority(pList, pValue){
+    let filteredList = new Array()
+
+    filteredList = pList.filter(task => task.Priority == pValue)
+
     return filteredList
 }
 
