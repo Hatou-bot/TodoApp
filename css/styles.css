@@ -1,12 +1,16 @@
-/* Paleta:
-    #e8dee8
-    #E8D7FF
-    #8E9DCC
-    #7D84B2
-    #A30B37
-    #272838
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Pattaya&display=swap');
 
-*/
+:root {
+    --first-last-colours: #767A8B;
+    --second-colour: #D5DBF4;
+    --delete-button: #A30B37;
+    --urgent: #FF9AA2;
+    --daily: #FFDAC1;
+    --weekly: #FFFFD8;
+    --monthly: #B5EAD7;
+    --title-font: 'Pattaya', sans-serif;
+    --everything-else-font: 'Nunito', sans-serif;
+}
 
 * {
     margin: 0;
@@ -15,27 +19,104 @@
 }
 .container {
     width: 500px;
-    left: 50%;
-    right: 50%;
+    margin-left: 35%;
+    margin-top: 5%;
+    border-radius: 20px;
+    font-family: var(--everything-else-font);
 }
-ul {
-    list-style: none;
+select {
+    border-radius: 20px;
+}
+input {
+    border-radius: 20px;
 }
 .container div {
     width: auto;
+    border-radius: 20px;
+    padding: 5px 0;
+}
+.title-bar {
+    background-color: var(--first-last-colours);
+    color: white;
+    margin-bottom: 10px;
+}
+.title-bar p {
+    font-variant: small-caps;
+    font-family: var(--title-font);
+    font-size: 30px;
+    text-align: center;
 }
 .first-bar {
-    background-color: #E8DEE8;
+    background-color: var(--second-colour);
+    margin-bottom: 10px;
+}
+.first-bar div {
+    padding-left: 20px; /*I'm doing this at like 5 am. Can't sleep. Killed a roach. Can't find the corpse. Please give me morphine or something and let me sleep*/
+}
+.first-bar select {
+    border-radius: 20px;
+    padding: 2px 10px;
+}
+.first-bar button {
+    border-radius: 20px;
+    padding: 2px 10px;
 }
 .second-bar {
-    background-color: #272838;
+    background-color: var(--first-last-colours); /*I'm gonna make this thing look pretty even if it's the last thing I do on Earth*/
     color: white;
 }
+.second-bar select {
+    border-radius: 20px;
+    padding: 2px 10px;
+}
+.second-bar div {
+    padding-left: 20px;
+}
+.second-bar p {
+    display: inline-flex;
+    padding-right: 5px;
+}
+.task-body article {
+    padding: 10px;
+    margin: 10px 0px;
+    border-radius: 20px;
+    border: 1px solid dimgray;
+}
+.task-body article div { /*I know this is like terrible but it's 6am so fuck the police*/
+    display: flex;
+    justify-content: space-around;
+}
+.task-body article div p {
+    width: 80%;
+    line-height: 25px;
+    vertical-align: center;
+}
 .delete {
-    background-color: #A30B37;
+    background-color: var(--delete-button);
+    border: none;
+    border-radius: 20px;
+    width: 80px;
+    height: 40px;
     color: white;
 }
 .footer {
-    background-color: #272838;
+    background-color: var(--first-last-colours);
     color: white;
+}
+.footer p {
+    text-align: center;
+    font-family: var(--title-font);
+    font-weight: 200;
+}
+.priority-urgent {
+    background-color: var(--urgent);
+}
+.priority-daily {
+    background-color: var(--daily);
+}
+.priority-weekly {
+    background-color: var(--weekly);
+}
+.priority-monthly {
+    background-color: var(--monthly);
 }

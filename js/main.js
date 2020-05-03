@@ -7,18 +7,28 @@ const taskList = [{'taskId': 101, 'Name':'Studying Javascript', 'Priority':'Urge
 const taskBody = document.querySelector('.task-body')
 const taskInput = document.querySelector('.add-task')
 const clickTask = document.querySelector('.first-bar button')
-const priority = document.querySelector('.first-bar select')
+const prioritySelect= document.querySelector('.first-bar select')
+
+
+function priorityToClassName(pPriority){
+    
+    return "priority-" + pPriority.toLowerCase()
+}
 
 function printTasks(pTasks){ //prints tasks in the body
     taskBody.innerHTML = ""
 
     for(const task of pTasks){
-        taskBody.innerHTML += `<article>
-        <p>${task.Name}</p>
-        <p>${task.Priority}</p>
-        <button class="delete">Eliminar</button>
+        taskBody.innerHTML += `<article class="${priorityToClassName(task.Priority)}">
+        <div>
+            <p>${task.Name}</p>
+            
+            <button class="delete">Eliminar</button>
+        </div>
     </article>`
     }
+    //class="${task.Priority.toLowerCase()}"
+    //<p>${task.Priority}</p> this was going right after <p>${task.Name}</p> 
 }
 printTasks(taskList)
 //printTasks(taskList)
@@ -29,10 +39,17 @@ function onSaveTask(){
     const task = {
         taskId: taskId,
         Name: taskInput.value,
-        Priority: priority.value,
+        Priority: prioritySelect.value,
     }
     taskList.push(task)
     taskId++;
     taskInput.value = ""
+    clickTask.disabled = true
     printTasks(taskList)
 }
+
+taskInput.addEventListener('input', onNoTextInput) //I know this whole thing was not on the guide but it just irked me and made me feel uncomfortable not to have it
+function onNoTextInput(event){
+    clickTask.disabled = taskInput !== "" ? false : true
+}
+
