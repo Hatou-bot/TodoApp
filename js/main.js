@@ -8,6 +8,7 @@ const taskBody = document.querySelector('.task-body')
 const taskInput = document.querySelector('.add-task')
 const clickTask = document.querySelector('.first-bar button')
 const prioritySelect= document.querySelector('.first-bar select')
+const searchInput = document.querySelector('.search-task')
 
 
 function priorityToClassName(pPriority){
@@ -51,5 +52,22 @@ function onSaveTask(){
 taskInput.addEventListener('input', onNoTextInput) //I know this whole thing was not on the guide but it just irked me and made me feel uncomfortable not to have it
 function onNoTextInput(event){
     clickTask.disabled = taskInput !== "" ? false : true
+}
+
+searchInput.addEventListener('input', onSearchTask)
+
+function onSearchTask(event){
+    let filteredList = filterTasks(taskList, searchInput.value)
+    printTasks (filteredList)
+    
+}
+
+function filterTasks(pList, pTask){
+    let filteredList = new Array()
+
+    filteredList = pList.filter(task => {
+        return task.Name.includes(pTask.toLowerCase())
+    })
+    return filteredList
 }
 
