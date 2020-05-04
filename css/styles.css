@@ -2,6 +2,7 @@
 
 :root {
     --first-last-colours: #767A8B;
+    --save-button: #0b22a3;
     --second-colour: #D5DBF4;
     --delete-button: #A30B37;
     --urgent: #FF9AA2;
@@ -49,17 +50,30 @@ input {
 .first-bar {
     background-color: var(--second-colour);
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid dimgray;
 }
 .first-bar div {
     padding-left: 20px; /*I'm doing this at like 5 am. Can't sleep. Killed a roach. Can't find the corpse. Please give me morphine or something and let me sleep*/
 }
+.first-bar input {
+    margin-left: 60px;
+}
 .first-bar select {
     border-radius: 20px;
     padding: 2px 10px;
+    margin-left: 20px;
 }
 .first-bar button {
     border-radius: 20px;
+    width: 80px;
+    height: 40px;
     padding: 2px 10px;
+    margin-left: 20px;
+    background-color: var(--save-button);
+    color: white;
+    border: none;
 }
 .second-bar {
     background-color: var(--first-last-colours); /*I'm gonna make this thing look pretty even if it's the last thing I do on Earth*/
@@ -68,6 +82,7 @@ input {
 .second-bar select {
     border-radius: 20px;
     padding: 2px 10px;
+    margin-left: 20px;
 }
 .second-bar div {
     padding-left: 20px;
