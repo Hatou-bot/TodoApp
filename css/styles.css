@@ -74,6 +74,7 @@ input {
     background-color: var(--save-button);
     color: white;
     border: none;
+    
 }
 .second-bar {
     background-color: var(--first-last-colours); /*I'm gonna make this thing look pretty even if it's the last thing I do on Earth*/

@@ -25,10 +25,16 @@ function printTasks(pTasks){ //prints tasks in the body
         <div>
             <p>${task.Name}</p>
             
-            <button class="delete">Eliminar</button>
+            <button class="delete" id="${task.taskId}">Eliminar</button>
         </div>
     </article>`
     }
+    const deleteButtons = document.querySelectorAll('.delete')
+
+    for(const button of deleteButtons){
+            button.addEventListener('click', onDeleteTask)
+    }
+
     //class="${task.Priority.toLowerCase()}"
     //<p>${task.Priority}</p> this was going right after <p>${task.Name}</p> 
 }
@@ -72,7 +78,7 @@ function filterName(pList, pTask){
     return filteredList
 }
 
-searchPriority.addEventListener('change', onSearchPriority)
+searchPriority.addEventListener('change', onSearchPriority) //filters task by priority
 
 function onSearchPriority(event){
     if (searchPriority.value == "noFilter"){
@@ -92,3 +98,21 @@ function filterPriority(pList, pValue){
     return filteredList
 }
 
+/* deleteTask.addEventListener('click', onDeleteTask) //I just want to get done with this
+ */
+function onDeleteTask(event){
+    deleteTask(event.target.id)
+    printTasks(taskList)
+}
+
+function deleteTask (pTaskId){
+    let foundIndex 
+    for(const taskIndex in taskList){
+        const task = taskList[taskIndex]
+       if( pTaskId == task.taskId ){
+            foundIndex = taskIndex
+       }
+    }
+
+    taskList.splice(foundIndex, 1)
+}
